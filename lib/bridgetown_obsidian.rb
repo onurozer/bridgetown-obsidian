@@ -11,7 +11,7 @@ Bridgetown.initializer :bridgetown_obsidian do |config|
 
   # Add default configuration data:
   config.bridgetown_obsidian ||= {}
-  config.bridgetown_obsidian.my_setting ||= 123
+  # config.bridgetown_obsidian.collections ||= ['_posts']
 
   # Register your builder:
   config.builder BridgetownObsidian::Builder
