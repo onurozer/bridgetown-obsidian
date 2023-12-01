@@ -2,40 +2,54 @@
 
 A Bridgetown plugin to convert Obsidian notes to Bridgetown posts.
 
+This plugin allows you to use Obsidian's [internal links](https://help.obsidian.md/Linking+notes+and+files/Internal+links) feature to cross reference your Bridgetown posts and [embed images](https://help.obsidian.md/Linking+notes+and+files/Embedding+files). It replaces all the wikilinks references in `src/_posts` with Bridgetown compatible versions:
+
+1. Converts wikilinks from `[[My Markdown Post]]` to `<a href="/my-markdown post/">My Markdown Post</a>`
+2. Supports optional link titles such as `[[My Markdown Post|with an optional title]]`
+3. Converts image references from `![[attachments/image.jpg]]` to `<img src="/attachments/bridge.jpg" alt="" />`
+
 ## Installation
 
 Run this command to add this plugin to your site's Gemfile:
 
 ```shell
-bundle add my_awesome_plugin
+bundle add bridgetown_obsidian
 ```
 
 Then add the initializer to your configuration in `config/initializers.rb`:
 
 ```ruby
-init :my_awesome_plugin
+init :bridgetown_obsidian
 ```
 
-Or if there's a `bridgetown.automation.rb` automation script, you can run that instead for guided setup:
+### Obsidian Setup
+
+There are two main ways you can use this plugin with obsidian.
+
+1. Create a new vault that points to your `src/_posts` folder in Bridgetown. In this case you might want to add `.obsidian` to your `.gitignore` file.
+
+2. Create an symbolink link in your existing vault to your Bridgetown folder. This option is [strongly advised against](https://help.obsidian.md/Files+and+folders/Symbolic+links+and+junctions) by Obsidian so use at your own risk.
 
 ```shell
-bin/bridgetown apply https://github.com/username/my_awesome_plugin
+ln -s /path/to/bridgetown/folder/src/_posts "My Blog"
 ```
+
+In either case, turn on `Use [[Wikilinks]]` option in [Files & Links settings](https://help.obsidian.md/Linking+notes+and+files/Internal+links).
 
 ## Usage
 
-The plugin will…
-
-### Optional configuration options
-
-The plugin will automatically use any of the following metadata variables if they are present in your site's `_data/site_metadata.yml` file.
-
-…
+Edit your posts in Obsidian. If you have a Bridgetown server running, you can see your changes in real-time. If not, your changes will get reflected the next time you build your site.
 
 ## Testing
 
-- Run `bundle exec rake test` to run the test suite
-- Or run `script/cibuild` to validate with Rubocop and Minitest together.
+- Run `bundle exec rake test` to run the test suite.
+
+## Credits
+
+Check out these other great plugins that helped to inspire this one:
+
+- https://github.com/SpinalCMS/bridgetown-internal-markdown-links
+- https://github.com/jamie/bridgetown-notable
 
 ## Contributing
 
@@ -45,19 +59,3 @@ The plugin will automatically use any of the following metadata variables if the
 4. Commit your changes (`git commit -am 'Add some feature'`)
 5. Push to the branch (`git push origin my-new-feature`)
 6. Create a new Pull Request
-
----
-
-## Releasing (you can delete this section in your own plugin repo)
-
-To release a new version of the plugin, simply bump up the version number in both `version.rb` and
-`package.json`, and then run `script/release`. This will require you to have a registered account
-with both the [RubyGems.org](https://rubygems.org) and [NPM](https://www.npmjs.com) registries.
-You can optionally remove the `package.json` and `frontend` folder if you don't need to package frontend
-assets for Webpack.
-
-If you run into any problems or need further guidance, please check out our [Bridgetown community resources](https://www.bridgetownrb.com/docs/community)
-where friendly folks are standing by to help you build and release your plugin or theme.
-
-**NOTE:** make sure you add the `bridgetown-plugin` [topic](https://github.com/topics/bridgetown-plugin) to your
-plugin's GitHub repo so the plugin or theme will show up on [Bridgetown's official Plugin Directory](https://www.bridgetownrb.com/plugins)! (There may be a day or so delay before you see it appear.)
