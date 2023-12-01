@@ -2,20 +2,19 @@
 
 module BridgetownObsidian
   class Builder < Bridgetown::Builder
-    REGEX_WIKILINK = /(?<!\!)\[\[([^\]]+?)(?:\|([^\]]+))?\]\]/.freeze
-    REGEX_IMAGES = /!\[\[(.+?)\]\]/.freeze
+    REGEX_WIKILINK = /(?<!!)\[\[([^\]]+?)(?:\|([^\]]+))?\]\]/
+    REGEX_IMAGES = /!\[\[(.+?)\]\]/
 
     def build
-      generator :wikilinks  
+      generator :wikilinks
       generator :images
     end
 
     def wikilinks
-      resources.each do |post|              
-        post.content.gsub!(REGEX_WIKILINK) do |match|                            
+      resources.each do |post|
+        post.content.gsub!(REGEX_WIKILINK) do |match|
           wikilink = Regexp.last_match(1)
-          wikilink_title = Regexp.last_match(2) || wikilink          
-
+          wikilink_title = Regexp.last_match(2) || wikilink
           "[#{wikilink_title}](#{url_for("_posts/#{wikilink}.md")})"
         end
       end
@@ -31,7 +30,7 @@ module BridgetownObsidian
     end
 
     private
-    
+
     def resources
       site.collections.posts.resources
     end
@@ -39,6 +38,5 @@ module BridgetownObsidian
     def url_for(url)
       Bridgetown::RubyTemplateView::Helpers.new(resource, site).url_for(url)
     end
-    
   end
 end

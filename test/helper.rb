@@ -13,7 +13,7 @@ Bridgetown.logger.log_level = :error
 Minitest::Reporters.use! [
   Minitest::Reporters::DefaultReporter.new(
     color: true
-  ),
+  )
 ]
 
 module Bridgetown
@@ -22,18 +22,18 @@ module Bridgetown
 
     ROOT_DIR = File.expand_path("fixtures", __dir__)
     SOURCE_DIR = File.join(ROOT_DIR, "src")
-    DEST_DIR   = File.expand_path("dest", __dir__)
+    DEST_DIR = File.expand_path("dest", __dir__)
 
-    def root_dir(*files)
-      File.join(ROOT_DIR, *files)
+    def root_dir(*)
+      File.join(ROOT_DIR, *)
     end
 
-    def source_dir(*files)
-      File.join(SOURCE_DIR, *files)
+    def source_dir(*)
+      File.join(SOURCE_DIR, *)
     end
 
-    def dest_dir(*files)
-      File.join(DEST_DIR, *files)
+    def dest_dir(*)
+      File.join(DEST_DIR, *)
     end
 
     def make_liquid_context(registers = {})
