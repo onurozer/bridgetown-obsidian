@@ -38,3 +38,4 @@ test/dest
 .bridgetown-webpack
 
 .env
+.DS_Store
