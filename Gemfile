@@ -10,3 +10,7 @@ group :test do
   gem "minitest-profile"
   gem "minitest-reporters"
 end
+
+group :development do
+  gem "standard"
+end
