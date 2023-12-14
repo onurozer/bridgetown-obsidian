@@ -8,7 +8,7 @@ Gem::Specification.new do |spec|
   spec.author = "Onur Ozer"
   spec.email = "onur@simplematters.dev"
   spec.summary = "Converts Obsidian notes to Bridgetown posts"
-  spec.homepage = "https://github.com/onurozer/bridgetown_obsidian"
+  spec.homepage = "https://github.com/onurozer/bridgetown-obsidian"
   spec.license = "MIT"
 
   spec.files = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|script|spec|features|frontend)/}) }

@@ -53,7 +53,7 @@ Check out these other great plugins that helped to inspire this one:
 
 ## Contributing
 
-1. Fork it (https://github.com/username/my-awesome-plugin/fork)
+1. Fork it (https://github.com/onurozer/bridgetown-obsidian)
 2. Clone the fork using `git clone` to your local development machine.
 3. Create your feature branch (`git checkout -b my-new-feature`)
 4. Commit your changes (`git commit -am 'Add some feature'`)
