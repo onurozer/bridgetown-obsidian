@@ -4,7 +4,7 @@ A Bridgetown plugin to convert Obsidian notes to Bridgetown posts.
 
 This plugin allows you to use Obsidian's [internal links](https://help.obsidian.md/Linking+notes+and+files/Internal+links) feature to cross reference your Bridgetown posts and [embed images](https://help.obsidian.md/Linking+notes+and+files/Embedding+files). It replaces all the wikilinks references in `src/_posts` with Bridgetown compatible versions:
 
-1. Converts wikilinks from `[[My Markdown Post]]` to `<a href="/my-markdown post/">My Markdown Post</a>`
+1. Converts wikilinks from `[[My Markdown Post]]` to `<a href="/my-markdown-post/">My Markdown Post</a>`
 2. Supports optional link titles such as `[[My Markdown Post|with an optional title]]`
 3. Converts image references from `![[attachments/image.jpg]]` to `<img src="/attachments/bridge.jpg" alt="" />`
 
